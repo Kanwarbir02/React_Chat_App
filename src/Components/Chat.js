@@ -1,12 +1,49 @@
 import SignOut from "./SignOut.js";
+import { useState, useEffect } from "react";
+import { db } from "../firebase.js";
+import "firebase/firestore";
+
+
 
 const Chat = () => {
+
+    const [messages, setMessages] = useState([]);
+
+    useEffect(() => {
+        // db.collection('messages').orderBy("createdAt").limit(50).onSnapshot(snapshot => {
+        //     setMessages(snapshot.docs.map(doc => doc.data()))
+        // })  
+        db.collection('messages').orderBy('createdAt').limit(50).onSnapshot(snapshot => {
+            setMessages(snapshot.docs.map(doc => doc.data()))
+        })
+    }, [])
+
     return ( 
         <div>
             <SignOut />
-            <h1>All the chat components will appear here</h1>
+    
+            {messages.map(({id,text, photoURL}) => (
+
+                <div>
+                    <div key={id}>
+
+                        <img src={photoURL} alt="" />
+                        <p>{text}</p>
+
+                    </div>
+                </div>
+                
+                
+                
+            ))}
+
+            
+
+        
         </div>
      );
 }
  
 export default Chat;
+
+
