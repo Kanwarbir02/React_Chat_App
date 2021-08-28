@@ -26,8 +26,13 @@ const SendMesaage = () => {
         <div>
 
             <form action="" onSubmit={sendMsg}>
-                <Input type="text" placeholder="Type a Message..." value={textMsg} onChange={(e) => setTextMsg(e.target.value)}></Input>
-                <Button type="Submit">Send</Button>
+                <div className="sendMsg">
+                    <Input style={{ width: '78%', fontSize: '15px', fontWeight: '550', marginLeft: '5px', marginBottom: '-3px' }}  type="text" placeholder="Type a Message..." value={textMsg} onChange={(e) => setTextMsg(e.target.value)}></Input>
+
+                    <Button style={{ width: '18%', fontSize: '15px', fontWeight: '550', margin: '4px 5% -13px 5%', maxWidth: '200px'}}  type="Submit">Send</Button>
+
+                </div>
+                
             </form>
             
         </div>

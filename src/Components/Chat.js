@@ -21,20 +21,20 @@ const Chat = () => {
         <div>
             <SignOut />
     
-            {messages.map(({id,text, photoURL}) => (
+            <div className="msgs">
+                {messages.map(({id,text, photoURL}) => (
 
-                <div>
-                    <div key={id}>
+                    <div>
+                        <div key={id}>
 
-                        <img src={photoURL} alt="" />
-                        <p>{text}</p>
+                            <img src={photoURL} alt="" />
+                            <p>{text}</p>
 
+                        </div>
                     </div>
-                </div>
-                
-                
-                
-            ))}
+    
+                ))}
+            </div>
 
             <SendMesaage />
 
