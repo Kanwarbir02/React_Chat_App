@@ -3,7 +3,7 @@ import { useState } from "react";
 import firebase from "firebase";
 import { db, auth } from "../firebase";
 
-const SendMesaage = () => {
+const SendMesaage = ({scroll}) => {
 
     const [textMsg, setTextMsg] = useState("");
     
@@ -19,6 +19,8 @@ const SendMesaage = () => {
             createdAt: firebase.firestore.FieldValue.serverTimestamp()
         })
         setTextMsg('')
+
+        scroll.current.scrollIntoView({behavior: "smooth"})
     }
 
     return ( 

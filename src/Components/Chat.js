@@ -1,5 +1,5 @@
 import SignOut from "./SignOut.js";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { db, auth } from "../firebase.js";
 import "firebase/firestore";
 import SendMesaage from "./SendMessage.js";
@@ -8,6 +8,7 @@ import SendMesaage from "./SendMessage.js";
 
 const Chat = () => {
 
+    const scroll = useRef()
     const [messages, setMessages] = useState([]);
 
     useEffect(() => {
@@ -36,8 +37,11 @@ const Chat = () => {
                 ))}
             </div>
 
-            <SendMesaage />
+            <SendMesaage scroll={scroll}/>
 
+            
+            {/* appears at this div after new msg is sent */}
+            <div reference={scroll}></div> 
         
         </div>
      );
