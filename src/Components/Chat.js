@@ -41,7 +41,7 @@ const Chat = () => {
 
             
             {/* appears at this div after new msg is sent */}
-            <div reference={scroll}></div> 
+            <div ref={scroll}></div> 
         
         </div>
      );

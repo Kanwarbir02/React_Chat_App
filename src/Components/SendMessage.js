@@ -20,7 +20,7 @@ const SendMesaage = ({scroll}) => {
         })
         setTextMsg('')
 
-        scroll.current.scrollIntoView({behavior: "smooth"})
+        scroll.current.scrollIntoView({ behavior: 'smooth' })
     }
 
     return ( 
